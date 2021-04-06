@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+</head>
+<body>
+    <form>
+        Enter the String:
+        <input type="text" id="input">&nbsp;&nbsp;&nbsp;
+        Enter the character:
+        <input type="text" id="char">&nbsp;&nbsp;&nbsp;
+        <input type="submit" onclick="result()">
+    </form>
+    <div id="display"></div>
+</body>
+<script>
+    function result(){
+        event.preventDefault();
+        var count = 0;
+        var string = document.getElementById("input").value;
+        var character = document.getElementById("char").value;
+        for(var i=0; i<string.length; i++){
+            var index = string.charAt(i);
+            index == character ? count += 1 : document.getElementById("display").innerHTML = "<h1> Enter valid character </h1>";
+            //console.log(index);
+        }
+        //console.log(string);
+        document.getElementById("display").innerHTML = "<h1>"+"Count of - "+character +" is :" +count +"</h1>";
+    }
+</script>
+</html>

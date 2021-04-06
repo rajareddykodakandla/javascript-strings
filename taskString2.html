@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String-2</title>
+</head>
+<body>
+    <form>
+        Enter the string:
+        <input type="text" id="input">
+        <input type="submit" onclick="result()">
+    </form>
+    <div id="div"></div>
+    <script>
+        function result(){
+            event.preventDefault();
+            document.getElementById("div").innerHTML = ""
+            var div = document.getElementById("div")
+            var letters = {};
+            var count = 0;
+            var string = document.getElementById("input").value;
+            
+            for(var i=0; i<string.length; i++){
+                //letters[string.charAt(i)] = 1;
+                count = letters[string.charAt(i)];
+                letters[string.charAt(i)] = count ? count+=1 : 1;
+            }
+            console.log(letters);
+            //console.log(count)
+            var keys = Object.keys(letters);
+            //console.log(keys);
+            for(var j=0; j<keys.length; j++){
+                //console.log(keys[j]);
+                if(keys[j] == " "){
+                    j++;
+                }
+                div.innerHTML = div.innerHTML+"<h3>"+ keys[j]+ " count is " + letters[keys[j]] + "</h3>";
+            }
+        }
+    </script>
+</body>
+</html>
